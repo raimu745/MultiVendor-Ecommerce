@@ -34,6 +34,15 @@
     $(document).ready(function() {
     
         new DataTable('#example');  
-        new DataTable('#products');
+        // new DataTable('#products');
+        new DataTable('#products', {
+    columns: [
+        null, // This will auto-detect the number of columns
+        null, // You can add more nulls for additional columns
+        null
+    ]
+});
+ 
+
     });
 </script>

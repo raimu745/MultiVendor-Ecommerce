@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -83,5 +84,18 @@ Route::group(['middleware'=>['admin']],function(){
     Route::any('updateProductsStatus',[ProductController::class, 'updateProductsStatus']); 
     Route::match(['get','post'],'/addproducts',[ProductController::class,'addproducts']); 
     Route::any('editproduct/{id}',[ProductController::class, 'editproduct']);
-    Route::any('updateproduct/{id}',[ProductController::class, 'updateproduct']); 
+    Route::any('updateproduct/{id}',[ProductController::class, 'updateproduct']);   
+
+    Route::match(['get','post'],'/addattribute/{id}',[ProductController::class,'addattribute']);
+
+    Route::match(['get','post'],'addimages/{id}',[ProductController::class,'addimages']); 
+    Route::any('productimageStatus',[ProductController::class, 'productimageStatus']);
+    Route::any('productimageDelete/{id}',[ProductController::class, 'productimageDelete']);
+});
+
+
+Route::prefix('front')->group(function(){
+    Route::any('/',[FrontController::class, 'index']);
+
+
 });

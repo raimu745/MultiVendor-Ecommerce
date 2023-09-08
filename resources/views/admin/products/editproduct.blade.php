@@ -21,11 +21,11 @@
                     </div>
                  
                   @endif
-                  <form class="forms-sample" action="{{url('updateproduct',$products->id)}}" method="Post">@csrf
+                  <form class="forms-sample" action="{{url('updateproduct',$products->id)}}" method="Post" enctype="multipart/form-data">@csrf
 
                   <div class="form-group">
                       <label for="category_id">Select Category</label>
-                     <select name="category_id" id="category_id" class="form-control">
+                     <select name="category_id" id="category_id" class="form-control text-dark">
                        <option value="">Select</option>
                         @foreach ($category as $section)
                        <optgroup label="{{$section->name}}" style="color:#000"></optgroup>
@@ -78,11 +78,17 @@
                 </div>
                 <div class="form-group">
                 <label>Product Image</label>
-                <input type="file" class="form-control" id="pweight" name="pimage"> 
+                <input type="file" class="form-control" id="pweight" name="pimage">
+                
+                <a href="{{asset('admin/product/'.$products->pimage)}}" target="_blank">view image</a>
+
                 </div>
                 <div class="form-group">
                 <label>Product Video</label>
-                <input type="file" class="form-control" id="pweight" name="pvideo"> 
+                <input type="file" class="form-control" id="pweight" name="pvideo">
+                <a href="{{url('admin/videos/product/'.$products->pvideo) }}" target="_blank">View Video</a>
+
+
                 </div>
                 <div class="form-group">
                 <label>Product Description</label>

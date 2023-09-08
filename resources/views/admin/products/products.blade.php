@@ -31,6 +31,12 @@
                          Product color
                           </th>
                           <th>
+                            Image
+                          </th>
+                          <th>
+                            Video
+                          </th>
+                          <th>
                             Section
                           </th>
                           <th>
@@ -41,6 +47,9 @@
                           </th>
                           <th>
                             Status
+                          </th>
+                          <th>
+                           Product Video
                           </th>
                           <th>
                             Action
@@ -75,7 +84,7 @@
                           <td>
                           @if(!empty($product->pvideo))
                            
-                          <video width="150" height="150" controls>
+                          <video width="100" height="100" controls>
         <source src="{{ asset('admin/videos/product/' . $product->pvideo) }}" type="video/mp4">
       
     </video>
@@ -112,6 +121,8 @@
                           <td>
                 <a href="{{url('/editproduct',$product->id)}}"  class="btn btn-sm btn-success">Edit</a>
                 <a href="{{url('deleteproducts',$product->id)}}" class="btn btn-sm btn-danger" >Delete</a>
+                <a href="{{url('/addattribute',$product->id)}}"  class="btn btn-sm btn-success">Attribute</a>
+                <a href="{{url('/addimages',$product->id)}}"  class="btn btn-sm btn-primary">Images</a>
                           </td>
                         
                         </tr>
@@ -129,4 +140,6 @@
             </div>
             </div>
 </div>
+<br>
+<br>
 @endsection
